@@ -11,7 +11,7 @@ $('#currentDay').text(d.toString())
 var plannerHour = {
     hour:[$("#noon"),$("#one"),$("#two"),$("#three"),$("#four"),$("#five"),$("#six"),$("#seven"),$("#eight")],
     Value:[12,13,14,15,16,17,18,19,20]
-     }
+    }
 
 // need to log and save data from input boxes
 var planner = {
@@ -50,23 +50,29 @@ function update (){
 
 function save (){
 update();
-localStorage.setItem("planner", JSON.stringify(planner))
+console.log(JSON.stringify(planner));
+localStorage.setItem("planner", JSON.stringify(planner));
 
 }
 
 $(".saveBtn").click(function(){
 event.preventDefault();
+console.log(1);
 save();
-
+console.log(2);
 
 
 })
 
 function render(){
-    
-    var savedPlanner = JSON.parse(localStorage.getItem("planner"));
+    //update js
+     var savedPlanner = JSON.parse(localStorage.getItem("planner"))
+    if (savedPlanner ==null){
+        return;
+    }
+   ;
    
-    console.log(savedPlanner)
+    console.log(savedPlanner);
 
     $("#noon").val(savedPlanner.Noon);
     $("#one").val(savedPlanner.one);
@@ -95,7 +101,7 @@ function render(){
 
 
     function colorcheck(){
-     var  hi = parseInt(h)
+    var  hi = parseInt(h)
 
         for(var i = 0; i< plannerHour.hour.length;i++){
 
