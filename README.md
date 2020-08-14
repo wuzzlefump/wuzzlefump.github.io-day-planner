@@ -23,3 +23,5 @@ THEN the text for that event is saved in local storage
 
 WHEN I refresh the page
 THEN the saved events persist
+
+https://wuzzlefump.github.io/wuzzlefump.github.io-day-planner/
